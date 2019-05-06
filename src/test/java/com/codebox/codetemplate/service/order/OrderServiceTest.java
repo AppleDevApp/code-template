@@ -1,6 +1,6 @@
 package com.codebox.codetemplate.service.order;
 
-import com.codebox.codetemplate.CodeTemplateApplication;
+import com.codebox.codetemplate.base.MockEnvironment;
 import com.codebox.codetemplate.domain.Order;
 import com.codebox.codetemplate.domain.enums.OrderStatus;
 import org.junit.Assert;
@@ -13,10 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
-@Transactional //支持数据回滚，避免测试数据污染环境
+//支持数据回滚，避免测试数据污染环境
+@Transactional
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = CodeTemplateApplication.class)
-public class OrderServiceTest {
+@SpringBootTest
+public class OrderServiceTest extends MockEnvironment {
 
     @Autowired
     public OrderService orderService;
